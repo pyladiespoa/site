@@ -31,14 +31,14 @@ site
 │   ├── forms.py
 │   ├── migrations
 │   ├── models.py
-│   ├── static  # CSS, fontes, imagens, vão aqui
+│   ├── static        # CSS, fontes, imagens, vão aqui
 │   ├── templates
 │   │   ├── blog
-│   │   │   ├── base.html  # Layout principal do site
-│   │   │   ├── post_detail.html  # Layout quando abre um artigo
+│   │   │   ├── base.html             # Layout principal do site
+│   │   │   ├── post_detail.html      # Layout quando abre um artigo
 │   │   │   ├── post_draft_list.html  # Layout da lista de rascunhos
-│   │   │   ├── post_edit.html  # Layout de edição de artigo
-│   │   │   └── post_list.html  # Layout da lista de artigos -> home do site
+│   │   │   ├── post_edit.html        # Layout de edição de artigo
+│   │   │   └── post_list.html        # Layout da lista de artigos -> home do site
 │   │   └── registration
 │   │       └── login.html  # Layout página de login
 │   ├── tests.py
