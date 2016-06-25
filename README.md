@@ -6,16 +6,18 @@ O site é desenvolvido em Django e está disponível em: https://pyladiespoa.pyt
 
 Assumindo que seu git e virtualenv já estão configurados, faça o clone do repositório:
 
+```
 $ git clone git@github.com:pyladiespoa/site.git
+```
 
 Entre na pasta do repositório e crie um ambiente virtual (virtualenv). Chamei de myvenv. Se você não sabe como criar uma virtualenv, leia o [tutorial DjangoGirls](http://tutorial.djangogirls.org/pt/django_installation/).
 
 Atenção: se você estiver usando um MacOS X para desenvolver, você provavelmente precisará exportar algumas variáveis locale do Python. Siga esse link: [Fix unknown locale](http://patrick.arminio.info/fix-valueerror-unknown-locale-utf8/)
 
 Ative seu virtualenv e inicialize o servidor:
-
+```
 (virtualenv)$ python manage.py runserver
-
+```
 Abra o browser em localhost:8000 para ver o site.
 
 ## Estrutura
