@@ -6,6 +6,23 @@
 
         <meta charset="utf-8">
 
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:image" content="https://pyladiespoa.pythonanywhere.com/static/img/pyladies-poa.png">
+        <meta name="twitter:title" content="Pyladies Porto Alegre">
+        <meta name="twitter:description" content="Grupo de mulheres para estudo de Python em Porto Alegre, RS">
+        <meta name="twitter:creator" content="@Pyladiespoa">
+
+        <!-- Open Graph -->
+        <meta property="og:locale" content="pt_BR">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Pyladies Porto Alegre">
+        <meta property="og:description" content="Grupo de mulheres para estudo de Python em Porto Alegre, RS">
+        <meta property="og:url" content="https://pyladiespoa.pythonanywhere.com">
+        <meta property="og:image" content="https://pyladiespoa.pythonanywhere.com/static/img/pyladies-poa.png">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
 		<title>Pyladies Porto Alegre</title>
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -15,9 +32,8 @@
 
 	<body>
         <div class="row">
-
-            <div class="col-md-3 pull-left">
-                <header>
+            <header>
+                <div class="col-md-3 col-sm-10 pull-left">
                     <a href="/"><img src="{% static 'img/pyladies-poa.png' %}" alt="Pyladies Porto Alegre" class="img-responsive"></a>
                     <nav class="text-center">
                         <ul class="list-unstyled">
@@ -25,26 +41,27 @@
                         <li><a href="https://www.facebook.com/pyladiespoa">Facebook</a></li>
                         </ul>
                     </nav>
-                </header>
-            </div>
+                </div>
+            </header>
 
-            <div class="col-md-1 pull-right">
+            <main>
                 {% if user.is_authenticated %}
+                    <div class="pull-right">
                     <span class="top-menu">Olá, {{ user.username }}! <small>(<a href="{% url 'logout' %}">Sair</a>)</small></span>
                     <a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
                     <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-            
+                    </div>
                 {% else %}
                     <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
                 {% endif %}
-            </div>
 
-            <div class="container-fluid">
-                <div class="col-md-9 col-sm-12 pull-right">
-                {% block content %}
-                {% endblock %}
+                <div class="container-fluid">
+                    <div class="col-md-9 col-sm-12 pull-right">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
                 </div>
-            </div>
+            </main>
         </div>
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
@@ -52,6 +69,6 @@
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
         <footer><div class="container text-center small">PyLadies e o logo PyLadies são trademarks da Python Software Foundation. Logo PyLadies Porto Alegre inspirado no logo do <a href="https://matehackers.org/">Matehackers</a>. O conteúdo original desse site possui uma Licença <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional</a>. Código fonte no <a href="https://github.com/pyladiespoa/site">Github</a>.</div></footer>
-        
+
 	</body>
 </html>
