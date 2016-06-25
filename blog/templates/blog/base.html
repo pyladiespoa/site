@@ -14,30 +14,44 @@
 	</head>
 
 	<body>
-    <header>
-        <a href="/"><img src="{% static 'img/pyladies-poa.png' %}" alt="Pyladies Porto Alegre" width="300" class="img-responsive pull-left"></a>
-        <div class="pull-right">
-        {% if user.is_authenticated %}
-            <span class="top-menu">Olá, {{ user.username }}! <small>(<a href="{% url 'logout' %}">Sair</a>)</small></span>
-            <a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-            <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
-            </div>
-        {% else %}
-            <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-        {% endif %}
-    </header>
-    <div class="container">
         <div class="row">
-            <div class="col-md-9">
-            {% block content %}
-            {% endblock %}
+
+            <div class="col-md-3 pull-left">
+                <header>
+                    <a href="/"><img src="{% static 'img/pyladies-poa.png' %}" alt="Pyladies Porto Alegre" class="img-responsive"></a>
+                    <nav class="text-center">
+                        <ul class="list-unstyled">
+                        <li><a href="telegram.me/pyladiespoa">Telegram</a></li>
+                        <li><a href="https://www.facebook.com/pyladiespoa">Facebook</a></li>
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+
+            <div class="col-md-1 pull-right">
+                {% if user.is_authenticated %}
+                    <span class="top-menu">Olá, {{ user.username }}! <small>(<a href="{% url 'logout' %}">Sair</a>)</small></span>
+                    <a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                    <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+            
+                {% else %}
+                    <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+                {% endif %}
+            </div>
+
+            <div class="container-fluid">
+                <div class="col-md-9 col-sm-12 pull-right">
+                {% block content %}
+                {% endblock %}
+                </div>
             </div>
         </div>
-    </div>
+
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
         <footer><div class="container text-center small">PyLadies e o logo PyLadies são trademarks da Python Software Foundation. Logo PyLadies Porto Alegre inspirado no logo do <a href="https://matehackers.org/">Matehackers</a>. O conteúdo original desse site possui uma Licença <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional</a>. Código fonte no <a href="https://github.com/pyladiespoa/site">Github</a>.</div></footer>
+        
 	</body>
 </html>
