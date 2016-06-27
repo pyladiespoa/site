@@ -25,52 +25,59 @@
 
 		<title>Pyladies Porto Alegre</title>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
 		<link rel="stylesheet" href="{% static 'css/pyladies.css' %}">
         
 	</head>
 
 	<body>
-        <div class="row">
-            <header>
-                <div class="col-md-3 col-xs-11 pull-left">
-                    <a href="/"><img src="{% static 'img/pyladies-poa.png' %}" alt="Pyladies Porto Alegre" class="img-responsive"></a>
-                    <nav class="text-center">
-                        <ul class="list-unstyled">
-                        <li><a href="tg://resolve?domain=pyladiespoa">Telegram</a></li>
-                        <li><a href="https://www.quitter.se/pyladiespoa">Quitter</a></li>
-                        <li><a href="https://www.twitter.com/Pyladiespoa">Twitter</a></li>
-                        <li><a href="https://www.facebook.com/pyladiespoa">Facebook</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </header>
-
-            <main>
-                {% if user.is_authenticated %}
-                    <div class="pull-right">
-                    <span class="top-menu">Olá, {{ user.username }}! <small>(<a href="{% url 'logout' %}">Sair</a>)</small></span>
-                    <a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-                    <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+        <div class="container">
+            <div class="row">
+                <header>
+                    <div class="col-md-3 col-xs-11 pull-left">
+                        <a href="/"><img src="{% static 'img/pyladies-poa.png' %}" alt="Pyladies Porto Alegre" class="img-responsive"></a>
+                        <nav class="text-center">
+                            <ul class="list-unstyled">
+                            <li><a href="https://pyladiespoa.pythonanywhere.com/post/1/">Sobre nós</a></li>
+                            <li><a href="tg://resolve?domain=pyladiespoa">Telegram</a></li>
+                            <li><a href="https://www.quitter.se/pyladiespoa">Quitter</a></li>
+                            <li><a href="https://www.twitter.com/Pyladiespoa">Twitter</a></li>
+                            <li><a href="https://www.facebook.com/pyladiespoa">Facebook</a></li>
+                            </ul>
+                        </nav>
                     </div>
-                {% else %}
-                    <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
-                {% endif %}
+                </header>
 
-                <div class="container-fluid">
-                    <div class="col-md-9 col-sm-12 pull-right">
-                        {% block content %}
-                        {% endblock %}
+                <main>
+                    {% if user.is_authenticated %}
+                        <div class="pull-right">
+                        <span class="top-menu">Olá, {{ user.username }}! <small>(<a href="{% url 'logout' %}">Sair</a>)</small></span>
+                        <a href="{% url 'blog.views.post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                        <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
+                        </div>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="top-menu"><span class="glyphicon glyphicon-lock"></span></a>
+                    {% endif %}
+
+                    <div class="container">
+                        <div class="col-md-9 col-sm-12 pull-right">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
                     </div>
-                </div>
-            </main>
-        </div>
+                </main>
+            </div> <!-- end of row -->
+        </div> <!-- end of container -->
 
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
-		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+		<script src="{% static 'bootstrap/js/jquery-1.12.4.min.js' %}"></script>
 
-        <footer><div class="container text-center small">PyLadies e o logo PyLadies são trademarks da Python Software Foundation. Logo PyLadies Porto Alegre inspirado no logo do <a href="https://matehackers.org/">Matehackers</a>. O conteúdo original desse site possui uma Licença <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional</a>. Código fonte no <a href="https://github.com/pyladiespoa/site">Github</a>.</div></footer>
+        <footer>
+            <div class="container text-center small">
+                <p>PyLadies e o logo PyLadies são trademarks da Python Software Foundation. Logo PyLadies Porto Alegre inspirado no logo do <a href="https://matehackers.org/">Matehackers</a>. O conteúdo original desse site possui uma Licença <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Atribuição-CompartilhaIgual 4.0 Internacional</a>. Código fonte no <a href="https://github.com/pyladiespoa/site">Github</a>.</p>
+            </div>
+        </footer>
 
 	</body>
 </html>
