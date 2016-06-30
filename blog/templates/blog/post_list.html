@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
-	{% for post in posts %}
+			{% for post in posts %}
 							<div class="post">
 							    <article>
 							        <div class="date">
@@ -11,7 +11,6 @@
 							        <p>{{ post.text|linebreaksbr }}</p>
 							    </article>
 							</div>
-							
 							<hr class="red-dashed">
-	{% endfor %}
+			{% endfor %}
 {% endblock content %}
