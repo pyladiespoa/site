@@ -7,7 +7,7 @@ O site é desenvolvido em Django e está disponível em: https://pyladiespoa.pyt
 Assumindo que seu git e virtualenv já estão configurados, faça o clone do repositório:
 
 ```
-$ git clone git@github.com:pyladiespoa/site.git
+$ git clone https://github.com/pyladiespoa/site.git
 ```
 
 Entre na pasta do repositório e crie um ambiente virtual (virtualenv). Se você não sabe como criar uma virtualenv, é altamente recomendado que leia o [tutorial DjangoGirls](http://tutorial.djangogirls.org/pt/django_installation/). Ative a virtualenv.
